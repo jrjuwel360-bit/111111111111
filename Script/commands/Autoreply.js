@@ -16,7 +16,7 @@ module.exports.handleEvent = async function ({ api, event, Users }) {
   const msg = body.toLowerCase().trim();
 
   const responses = {
-    "miss you": " Miss না করে xan মেয়ে হলে বস জুয়েল রে হাঙ্গা করো😶👻😘",
+    "miss you": " Miss না করে xan মেয়ে হলে বস জুয়েল রে হাঙ্গা করো😶😘",
     "kiss de": "কিস দিস না তোর মুখে দূর গন্ধ কয়দিন ধরে দাঁত ব্রাশ করিস নাই🤬",
     "👍": "সর এখান থেকে লাইকার আব*ল..!👋🤣👍👀",
     "help": "Prefix de sala",
