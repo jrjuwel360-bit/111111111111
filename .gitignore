@@ -1,0 +1,8 @@
+node_modules/
+.env
+config.json
+data/db.json
+data/db.json.tmp
+*.log
+Script/commands/cache/*.mp4
+Script/commands/cache/*.mp3
