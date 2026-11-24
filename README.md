@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/juwel-logo.svg" alt="MR JUWEL BOT" width="640"/>
+  <img src="assets/juwel-photo-float.svg" alt="MR JUWEL" width="100%"/>
 </p>
 
 <h3 align="center">🤖 MR JUWEL — Telegram Bot</h3>
