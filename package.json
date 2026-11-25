@@ -1,0 +1,50 @@
+{
+  "name": "mr-juwel-telegram-bot",
+  "version": "4.0.0",
+  "description": "🤖 MR JUWEL Telegram Bot — 24/7 • Prefix & No-Prefix • 250+ commands • Render/Railway/GitHub Actions ready | Credit: 乛 M𝆠፝֟R ཐི༏ཋྀ JU𝆠፝֟W𝆠፝֟ELꜛཐི༏ཋྀ࿐",
+  "author": "乛 M𝆠፝֟R ཐི༏ཋྀ JU𝆠፝֟W𝆠፝֟ELꜛཐི༏ཋྀ࿐",
+  "keywords": [
+    "telegram",
+    "telegram-bot",
+    "mr-juwel",
+    "juwel",
+    "bd-bot-team",
+    "24x7",
+    "render",
+    "railway",
+    "github-actions"
+  ],
+  "homepage": "https://t.me/mrjuwel2025",
+  "main": "Juwel.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node Juwel.js",
+    "check": "SHOW_SKIPPED=1 node Juwel.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "fs-extra": "^11.2.0",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
+    "request": "^2.88.2",
+    "chalk": "^4.1.2",
+    "form-data": "^4.0.0",
+    "string-similarity": "^4.0.4",
+    "node-schedule": "^2.1.1",
+    "yt-search": "^2.10.4",
+    "jimp": "^0.22.12"
+  },
+  "optionalDependencies": {
+    "canvas": "^3.2.0",
+    "ytdl-core": "^4.11.2",
+    "shaon-videos-downloader": "^1.0.1",
+    "qrcode-reader": "^1.0.4",
+    "qrcode": "^1.5.3",
+    "systeminformation": "^5.22.0",
+    "pidusage": "^3.0.2",
+    "node-superfetch": "^0.2.3"
+  }
+}

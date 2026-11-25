@@ -1,0 +1,49 @@
+name: Telegram Bot
+
+on:
+  workflow_dispatch:        # Actions ট্যাব থেকে "Run workflow" চাপলেই চালু
+  schedule:
+    - cron: "0 * * * *"     # প্রতি ঘণ্টায় একটা রান কিউতে বসে; আগেরটা শেষ হলেই পরেরটা শুরু হয় (নিচে concurrency দেখুন)
+
+# একসাথে শুধু একটা ইনস্ট্যান্স (দুইটা polling করলে টেলিগ্রাম 409 দেয়)
+concurrency:
+  group: telegram-bot
+  cancel-in-progress: false
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      # বটের ডাটা (Users/Currencies) রানের মধ্যে ধরে রাখতে ক্যাশ
+      - name: Restore bot data
+        uses: actions/cache/restore@v4
+        with:
+          path: data
+          key: bot-data-${{ github.run_id }}
+          restore-keys: bot-data-
+
+      - name: Run bot (≈5h45m, then the next queued run takes over)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.JUWEL_BOT_TOKEN || secrets.TELEGRAM_BOT_TOKEN }}
+          ADMIN_IDS: ${{ secrets.JUWEL_UID || secrets.ADMIN_IDS }}
+          PREFIX: ${{ vars.PREFIX }}
+          BOTNAME: ${{ vars.BOTNAME }}
+          NOTIFY_START: ${{ vars.NOTIFY_START }}
+        run: timeout --signal=SIGTERM 20700 node Juwel.js || true
+
+      - name: Save bot data
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data
+          key: bot-data-${{ github.run_id }}
